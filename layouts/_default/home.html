@@ -1,0 +1,12 @@
+{{ define "main" }}
+{{ template "partials/home-desc.html" . }}
+<div class="mt-4 mb-6">
+    {{ template "partials/taxonomy-list.html" . }}
+</div>
+{{ $pages := .Site.RegularPages }}
+<div class="divide-y divide-gray-200">
+    {{ range $pages }}
+    {{ template "partials/post-item.html" .}}
+    {{- end -}}
+</div>
+{{ end }}

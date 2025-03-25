@@ -1,0 +1,8 @@
+baseURL = "https://til.huyixi.com/"
+languageCode = "zh-cn"
+title = "huyixi's TILs"
+
+[params]
+title = "huyixi: TIL"
+subtitle = "Things I learned today, collected in [til.huyixi.com](https://til.huyixi.com). You may also enjoy my [blog](https://blog.huyixi.com)."
+description = "Small discoveries, every day"

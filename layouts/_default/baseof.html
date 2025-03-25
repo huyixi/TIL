@@ -1,0 +1,8 @@
+<!doctype html>
+<html>
+    {{ partial "header.html" . }}
+    <body class="m-0">
+        {{ partial "site-header.html" . }}
+        <main class="max-w-4xl px-8 py-4">{{ block "main" . }}{{ end }}</main>
+    </body>
+</html>

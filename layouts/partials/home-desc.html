@@ -1,0 +1,5 @@
+<div class="home-desc">
+  {{- if isset .Site.Params "subtitle" -}}
+  <p class="my-4 text-xl">{{ .Site.Params.subtitle | markdownify }}</p>
+  {{- end -}}
+</div>

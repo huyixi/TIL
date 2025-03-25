@@ -1,0 +1,19 @@
+<div class="taxonomy-list">
+  <span class="font-bold">
+
+    Browse by topic:
+
+  </span>
+  {{- $taxonomies := .Site.Taxonomies.tags -}}
+  {{- $taxonomyList := slice -}}
+  {{- range $name, $taxonomy := $taxonomies -}}
+  {{- $taxonomyList = $taxonomyList | append $name -}}
+  {{- end -}}
+  {{- range $index, $name := $taxonomyList -}}
+  {{- with index $.Site.Taxonomies.tags $name -}}
+  <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}" class="tag-link">
+    {{ $name }} {{ len . }}</a>{{- if ne (add $index 1) (len $taxonomyList) }} ·
+  {{ end -}}
+  {{- end -}}
+  {{- end -}}
+</div>

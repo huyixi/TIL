@@ -1,0 +1,33 @@
+<article class="py-2">
+  <!-- Metadata -->
+  <div class="flex items-center gap-4 text-sm text-gray-500 mb-1">
+    <time>
+      {{ .Date.Format "2006-01-02" }}
+    </time>
+    {{ with .Params.tags }}
+    <div class="flex items-center gap-2">
+      {{ range . }}
+      <span class="hover:text-gray-700">{{ . }}</span>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+  <!-- Title -->
+  <h2 class="text-normal mb-1 text-blue-600">
+    <a href="{{ .RelPermalink }}"
+      class="text-blue-600 hover:text-blue-600 transition-colors duration-200">
+      {{ .Title }}
+    </a>
+  </h2>
+
+  <!-- Description -->
+  <div class="prose prose-lg text-gray-600">
+    {{ if isset .Params "description" }}
+    {{ .Description }}
+    {{ else if gt (len .RawContent) 100 }}
+    {{ slicestr .RawContent 0 100 }}...
+    {{ else }}
+    {{ .RawContent }}
+    {{ end }}
+  </div>
+</article>

@@ -1,0 +1,16 @@
+{{- $isDev := eq hugo.Environment "development" -}}
+
+{{- /* Get CSS files */ -}}
+{{- $css := resources.Get "css/output.css" -}}
+
+{{- with $css -}}
+{{- if $isDev -}}
+<link rel="stylesheet" href="{{ .RelPermalink }}" />
+{{- else -}}
+{{- $style := . | minify | fingerprint -}}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}"
+  integrity="{{ $style.Data.Integrity }}" crossorigin="anonymous" />
+{{- end -}}
+{{- else -}}
+{{- errorf "Could not find output.css file in assets/css/" -}}
+{{- end -}}
