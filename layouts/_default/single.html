@@ -1,6 +1,3 @@
 {{define "main"}}
-<main>
-	{{.Content}}
-</main>
-{{template "partials/article-footer.html" . }}
-{{end}}
+<article class="prose prose-zinc">{{.Content}}</article>
+{{template "partials/article-footer.html" . }} {{end}}
